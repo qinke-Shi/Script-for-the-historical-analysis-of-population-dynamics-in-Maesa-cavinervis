@@ -1,0 +1,23 @@
+[PARAMETERS]
+1 G5N unif 1000000 5000000 output
+1 G6N unif 20000 600000 output
+1 G3N unif 10000 800000 output
+1 G2N unif 100000 1000000 output
+1 G1N unif 100000 1000000 output
+1 TBOT_E unif 1000 30000 output
+0 RES_G5 logunif 1 40 output
+0 RES_G6 logunif 1 40 output
+1 INC1_POSTBOT unif 3000 90000 output
+0 MIG_G2_to_G3 logunif 1e-7 1e-3 output
+0 MIG_G1_to_G3 logunif 1e-7 1e-3 output
+0 MIG_G3_to_G2 logunif 1e-7 1e-3 output
+0 MIG_G3_to_G1 logunif 1e-7 1e-3 output
+1 INC2 unif 5000 90000 output
+1 INC3 unif 10 3000 output
+1 INC4 unif 30 8000 output
+
+[COMPLEX PARAMETERS]
+1 TIME1 = TBOT_E+INC1_POSTBOT output
+1 TIME2 = TIME1+INC2 output
+1 TIME3 = TIME2+INC3 output
+1 TIME4 = TIME3+INC4 output

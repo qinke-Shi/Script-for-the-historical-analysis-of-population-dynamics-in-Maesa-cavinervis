@@ -1,0 +1,49 @@
+// M25 parametric bootstrap par: 677266 LD-pruned intergenic SNPs as 150-bp DNA blocks (mu 2.43e-8 per gen); anchor = best intact run38 of the 100-run batch (lnL -7164399.384)
+5 samples to simulate :
+//Population effective sizes (number of genes)
+1208300
+302787
+104850
+543382
+504948
+//Samples sizes and samples age
+22
+50
+22
+34
+30
+//Growth rates
+0
+0
+0
+0
+0
+//Number of migration matrices
+2
+//Migration matrix 0 (gene flow: G2<->G3 and G1<->G3)
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 8.50204e-07 3.84715e-05
+0 0 1.40589e-05 0 0
+0 0 1.74413e-06 0 0
+//Migration matrix 1 (no gene flow)
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+//historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
+7 historical event
+13549 0 0 0 23.7489776 0 0
+13549 1 1 0 25.7267966 0 0
+13549 4 4 0 4.4102705 0 0
+69746 1 0 1 1 0 0
+116145 0 2 1 1 0 0
+116269 3 4 1 1 0 1
+116368 2 4 1 1 0 1
+//Number of independent loci [chromosome]
+677266 0
+//Per chromosome: Number of contiguous linkage Block
+1
+//per Block:data type, number of loci, recomb and mut rates
+DNA 150 0 2.43e-8 OUTEXP
