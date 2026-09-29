@@ -1,4 +1,4 @@
-﻿// 5-group model M20: No bottleneck + Gene flow between G2 and G3 (like M03) + Gene flow between G5 and G6
+﻿﻿// 5-group model M20: No bottleneck + Gene flow between G2 and G3 (like M03) + Gene flow between G5 and G6
 5 samples to simulate :
 //Population effective sizes (number of genes)
 G5N
@@ -7,11 +7,11 @@ G3N
 G2N
 G1N
 //Samples sizes and samples age
-22
+18
 50
 22
 34
-30
+28
 //Growth rates
 0
 0

@@ -1,4 +1,4 @@
-﻿// 5-group model M17: No bottleneck + Gene flow between G1 and G3 only
+﻿﻿// 5-group model M17: No bottleneck + Gene flow between G1 and G3 only
 5 samples to simulate :
 //Population effective sizes (number of genes)
 G5N
@@ -7,11 +7,11 @@ G3N
 G2N
 G1N
 //Samples sizes and samples age
-22
+18
 50
 22
 34
-30
+28
 //Growth rates
 0
 0

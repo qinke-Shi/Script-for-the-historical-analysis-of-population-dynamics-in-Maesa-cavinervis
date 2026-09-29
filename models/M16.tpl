@@ -7,11 +7,11 @@ G3N
 G2N
 G1N
 //Samples sizes and samples age
-22
+18
 50
 22
 34
-30
+28
 //Growth rates
 0
 0
@@ -33,9 +33,11 @@ G1N
 0 0 0 0 0
 0 0 0 0 0
 //historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
-6 historical event
-TBOT_E 0 0 0 RES_G5 0 0
-TBOT_E 1 1 0 RES_G6 0 0
+8 historical event
+TBOT_E 0 0 0 botr_G5 0 0
+TENDBOT_G5 0 0 0 recr_G5 0 0
+TBOT_E 1 1 0 botr_G6 0 0
+TENDBOT_G6 1 1 0 recr_G6 0 0
 TIME1 1 0 1 1 0 0
 TIME2 0 2 1 1 0 0
 TIME3 3 4 1 1 0 1

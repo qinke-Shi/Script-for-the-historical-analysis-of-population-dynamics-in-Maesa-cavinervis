@@ -7,11 +7,11 @@ G3N
 G2N
 G1N
 //Samples sizes and samples age
-22
+18
 50
 22
 34
-30
+28
 //Growth rates
 0
 0
