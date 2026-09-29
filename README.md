@@ -1,8 +1,10 @@
 # Script for the historical analysis of population dynamics in *Maesa cavinervis*
 
-This repository archives the fastsimcoal2 model definitions and analysis pipeline used to
-infer the historical demography (bottlenecks, divergence times and gene flow) of the five
-genetic groups of *Maesa cavinervis*, as described in the manuscript.
+This repository archives the analysis scripts of the manuscript: (i) the fastsimcoal2
+model definitions and analysis pipeline used to infer the historical demography
+(bottlenecks, divergence times and gene flow) of the five genetic groups of
+*Maesa cavinervis*, and (ii) the comparative genomics pipeline (orthology inference,
+Yang & Smith (2014) tree-based paralog pruning, and MCMCTree molecular dating).
 
 **Version note (2026-09-29).** The model definitions previously hosted here were based on an
 outdated dataset and an incorrect bottleneck parameterization. This revision replaces all 27
@@ -69,14 +71,22 @@ models use the equivalent binary form `TIME1 = INC1 + 0`.
 ├── models/                        # 27 fastsimcoal2 model definitions (M01-M27)
 │   ├── M01.tpl ... M27.tpl        # template files: historical model (demography/gene flow)
 │   └── M01.est ... M27.est        # parameter files: priors + complex-parameter chains
-└── batch_100runs/
-    ├── run_screening_27.sh        # SGE (qsub): initial screen, 27 models x 1 run
-    │                              #   (27 x -c 2 = 54 threads)
-    ├── run_top5_100run_botr.sh    # SGE (qsub): 100 independent runs per top-5 model
-    │                              #   (dynamic queue, 30 workers x -c 2 -B 2)
-    └── run_100run_fac6new.sh      # screen/nohup variant of the 100-run batch for
-                                   #   hosts without SGE (16 workers x -c 2 -B 2),
-                                   #   fsc28 v2.7.0.9 command syntax
+├── batch_100runs/
+│   ├── run_screening_27.sh        # SGE (qsub): initial screen, 27 models x 1 run
+│   │                              #   (27 x -c 2 = 54 threads)
+│   ├── run_top5_100run_botr.sh    # SGE (qsub): 100 independent runs per top-5 model
+│   │                              #   (dynamic queue, 30 workers x -c 2 -B 2)
+│   └── run_100run_fac6new.sh      # screen/nohup variant of the 100-run batch for
+│                                  #   hosts without SGE (16 workers x -c 2 -B 2),
+│                                  #   fsc28 v2.7.0.9 command syntax
+└── comparative_genomics/          # orthology inference (OrthoFinder v3.0.1b1),
+    │                              #   Yang & Smith (2014) paralog pruning, MCMCTree dating
+    ├── 00_orthology_inference/    #   header standardisation, longest-isoform extraction,
+    │                              #   OrthoFinder run, 705-OG list
+    ├── 01_paralog_pruning_YangSmith2014/  # sensitivity pipeline wrappers + original
+    │                              #   Y&S scripts + 2,612-OG list
+    └── 02_molecular_dating/       #   main + sensitivity MCMCTree control files,
+                                   #   calibrated guide tree
 ```
 
 ## Model definitions (M01-M27)
