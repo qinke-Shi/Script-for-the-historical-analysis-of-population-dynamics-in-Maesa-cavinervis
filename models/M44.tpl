@@ -1,4 +1,4 @@
-﻿// 5-group model M25: Bottleneck in G5, G6 AND G1 + gene flow G2<->G3 AND G1<->G3
+﻿// 5-group model M44: Bottleneck in G5, G6 AND G1 + gene flow G2<->G3 AND G5<->G6 (M19 plus G5<->G6, narrow priors)
 5 samples to simulate :
 //Population effective sizes (number of genes)
 G5N
@@ -19,14 +19,20 @@ G1N
 0
 0
 //Number of migration matrices
-2
-//Migration matrix 0 (gene flow: G2<->G3 and G1<->G3)
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 MIG_G2_to_G3 MIG_G1_to_G3
+3
+//Migration matrix 0 (gene flow: G2<->G3 and G5<->G6)
+0 MIG_G6_to_G5 0 0 0
+MIG_G5_to_G6 0 0 0 0
+0 0 0 MIG_G2_to_G3 0
 0 0 MIG_G3_to_G2 0 0
-0 0 MIG_G3_to_G1 0 0
-//Migration matrix 1 (no gene flow)
+0 0 0 0 0
+//Migration matrix 1 (gene flow: G2<->G3 only; used after G6 merges into G5 at TIME1)
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 MIG_G2_to_G3 0
+0 0 MIG_G3_to_G2 0 0
+0 0 0 0 0
+//Migration matrix 2 (no gene flow; used after G2 merges into G1 at TIME3)
 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
@@ -34,16 +40,16 @@ G1N
 0 0 0 0 0
 //historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
 10 historical event
-TBOT_E 0 0 0 botr_G5 0 0
+TBOT_G5 0 0 0 botr_G5 0 0
 TENDBOT_G5 0 0 0 recr_G5 0 0
-TBOT_E 1 1 0 botr_G6 0 0
+TBOT_G6 1 1 0 botr_G6 0 0
 TENDBOT_G6 1 1 0 recr_G6 0 0
-TBOT_E 4 4 0 botr_G1 0 0
+TBOT_G1 4 4 0 botr_G1 0 0
 TENDBOT_G1 4 4 0 recr_G1 0 0
-TIME1 1 0 1 1 0 0
-TIME2 0 2 1 1 0 0
-TIME3 3 4 1 1 0 1
-TIME4 2 4 1 1 0 1
+TIME1 1 0 1 1 0 1
+TIME2 0 2 1 1 0 1
+TIME3 3 4 1 1 0 2
+TIME4 2 4 1 1 0 2
 //Number of independent loci [chromosome]
 1 0
 //Per chromosome: Number of contiguous linkage Block

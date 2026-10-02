@@ -1,13 +1,12 @@
 // botr/recr bottleneck structure (M28-style): PNBOT=NX*botr=bottleneck Ne, PAN=PNBOT*recr=ancestor Ne, duration DURBOT
 [PARAMETERS]
-// Priors widened (v2) after boundary-check: cover ML region found in first round
 1 G5N unif 1000000 5000000 output
 1 G6N unif 20000 400000 output
 1 G3N unif 20000 500000 output
 1 G2N unif 100000 500000 output
-1 G1N unif 100000 800000 output
+1 G1N unif 100000 1000000 output
 1 TBOT_E unif 1000 20000 output
-1 DURBOT unif 10 2000 output
+1 DURBOT unif 10 3000 output
 0 botr_G5 logunif 1e-3 9e-1 output
 0 recr_G5 logunif 1.01 50 output
 0 botr_G6 logunif 1e-3 9e-1 output
@@ -19,7 +18,7 @@
 0 MIG_G3_to_G2 logunif 1e-6 1e-4 output
 0 MIG_G5_to_G6 logunif 1e-6 1e-3 output
 0 MIG_G6_to_G5 logunif 1e-6 1e-3 output
-1 INC2 unif 5000 50000 output
+1 INC2 unif 1000 50000 output
 1 INC3 unif 20 2000 output
 1 INC4 unif 50 5000 output
 

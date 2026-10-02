@@ -1,26 +1,30 @@
-// botr/recr bottleneck structure (M28-style): PNBOT=NX*botr=bottleneck Ne, PAN=PNBOT*recr=ancestor Ne, duration DURBOT
+// M43: independent-bottleneck-time variant of M25 (three-stage botr/recr; PNBOT=NX*botr, PAN=PNBOT*recr; per-deme onset TBOT_Gx and duration DURBOT_Gx; TIME1 anchored to TENDBOT_G5)
 [PARAMETERS]
 1 G5N unif 1000000 5000000 output
 1 G6N unif 20000 600000 output
 1 G3N unif 20000 500000 output
 1 G2N unif 100000 800000 output
 1 G1N unif 100000 1000000 output
-1 TBOT_E unif 1000 20000 output
-1 DURBOT unif 10 3000 output
+1 TBOT_G5 unif 500 20000 output
+1 TBOT_G6 unif 500 20000 output
+1 TBOT_G1 unif 500 20000 output
+1 DURBOT_G5 unif 10 3000 output
+1 DURBOT_G6 unif 10 3000 output
+1 DURBOT_G1 unif 10 3000 output
 0 botr_G5 logunif 1e-3 0.99 output
 0 recr_G5 logunif 1.01 50 output
 0 botr_G6 logunif 1e-3 0.99 output
 0 recr_G6 logunif 1.01 50 output
 0 botr_G1 logunif 1e-3 0.99 output
 0 recr_G1 logunif 1.01 50 output
-1 INC1_POSTBOT unif 3000 60000 output
+1 INC1_POSTBOT unif 3000 100000 output
 0 MIG_G2_to_G3 logunif 1e-7 1e-4 output
 0 MIG_G3_to_G2 logunif 1e-6 1e-4 output
 0 MIG_G1_to_G3 logunif 1e-6 1e-3 output
 0 MIG_G3_to_G1 logunif 1e-6 1e-3 output
 1 INC2 unif 5000 50000 output
-1 INC3 unif 20 2000 output
-1 INC4 unif 50 5000 output
+1 INC3 unif 10 2000 output
+1 INC4 unif 20 5000 output
 
 [COMPLEX PARAMETERS]
 1 PNBOT_G1 = G1N*botr_G1 output
@@ -29,9 +33,9 @@
 1 PAN_G1 = PNBOT_G1*recr_G1 output
 1 PAN_G5 = PNBOT_G5*recr_G5 output
 1 PAN_G6 = PNBOT_G6*recr_G6 output
-1 TENDBOT_G1 = TBOT_E+DURBOT hide
-1 TENDBOT_G5 = TBOT_E+DURBOT hide
-1 TENDBOT_G6 = TBOT_E+DURBOT hide
+1 TENDBOT_G1 = TBOT_G1+DURBOT_G1 hide
+1 TENDBOT_G5 = TBOT_G5+DURBOT_G5 hide
+1 TENDBOT_G6 = TBOT_G6+DURBOT_G6 hide
 1 TIME1 = TENDBOT_G5+INC1_POSTBOT output
 1 TIME2 = TIME1+INC2 output
 1 TIME3 = TIME2+INC3 output
