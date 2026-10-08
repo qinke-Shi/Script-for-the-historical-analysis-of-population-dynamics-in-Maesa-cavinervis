@@ -53,15 +53,16 @@ retention does not affect the divergence-time conclusions.
 
 | File | Purpose |
 |---|---|
-| `mcmctree.ctl` | Main analysis control file (PAML **4.9j** `mcmctree`: **Poisson + Γ4** rate variation — with `seqtype = 2` (amino acids) `model = 0` means Poisson; the `0:JC69` comment in the ctl applies to nucleotide data only — independent-rates clock `clock = 2`, approximate-likelihood final run `usedata = 2` reading the precomputed `in.BV`, birth–death prior `BDparas = 1 1 0.1`) |
+| `mcmctree.ctl` | Main analysis control file (PAML **4.9j** `mcmctree`: **Poisson + Γ4** rate variation — with `seqtype = 2` (amino acids) `model = 0` means Poisson; the `0:JC69` comment in the ctl applies to nucleotide data only — independent-rates clock `clock = 2`, approximate-likelihood final run `usedata = 2` reading the precomputed `in.BV`, birth–death prior `BDparas = 1 1 0.1`; MCMC chain of the final run: `burnin = 50000`, `sampfreq = 100`, `nsample = 50000`) |
 | `mcmctree_input.tree` | 12-taxon guide tree with the five TimeTree-based calibration constraints `B(...)` used in all MCMCTree runs |
 | `run_mcmctree.sh` | Job wrapper (adapt the absolute paths before reuse) |
-| `mcmc_sens.ctl` | First-pass template (`usedata = 3`): estimates the branch-rates file `out.BV`, which is renamed to `in.BV` for the final runs |
-| `mcmc_sens_MI.ctl` / `mcmc_sens_RT.ctl` | Final MI / RT sensitivity runs (`usedata = 2`, reading the estimated `in.BV`); identical to the main analysis except for the pruned alignment |
+| `mcmc_sens.ctl` | First-pass template (`usedata = 3`, short trial chain `burnin = 2000`, `sampfreq = 10`, `nsample = 20000`): estimates the branch-rates file `out.BV`, which is renamed to `in.BV` for the final runs |
+| `mcmc_sens_MI.ctl` / `mcmc_sens_RT.ctl` | Final MI / RT sensitivity runs (`usedata = 2`, reading the estimated `in.BV`; shorter MCMC chain `burnin = 2000`, `sampfreq = 10`, `nsample = 20000`); model, clock, priors and calibrations identical to the main analysis, only the pruned alignment differs |
 
 This setup corresponds to the manuscript description (Methods 2.3): MCMCTree under
 the approximate likelihood method, an independent-rates clock, and the
-**Poisson+G4** model.
+**Poisson+G4** model (main analysis: 50,000 iterations sampled every 100 after a
+50,000-iteration burn-in).
 
 ## Requirements
 
