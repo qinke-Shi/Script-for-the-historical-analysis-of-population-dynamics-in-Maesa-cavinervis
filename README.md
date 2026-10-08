@@ -2,7 +2,9 @@
 
 This repository archives the fastsimcoal2 model definitions and analysis pipeline used to
 infer the historical demography (bottlenecks, divergence times and gene flow) of the five
-genetic groups of *Maesa cavinervis*, as described in the manuscript.
+genetic groups of *Maesa cavinervis*, as described in the manuscript. It also hosts the
+comparative-genomics pipeline (orthology inference with OrthoFinder, Yang & Smith (2014)
+tree-based paralog pruning, and MCMCTree divergence dating) under `comparative_genomics/`.
 
 The repository hosts the final 45 model definitions: 27 models (M01-M27) with sample sizes
 18/50/22/34/28 and a three-stage (bootstrap-recovery) bottleneck structure, plus an expanded
@@ -71,7 +73,7 @@ models use the equivalent binary form `TIME1 = INC1 + 0`.
 ├── models/                        # 45 fastsimcoal2 model definitions (M01-M45)
 │   ├── M01.tpl ... M45.tpl        # template files: historical model (demography/gene flow)
 │   └── M01.est ... M45.est        # parameter files: priors + complex-parameter chains
-└── batch_100runs/
+├── batch_100runs/
     ├── run_screening_27.sh        # SGE (qsub): initial screen, 27 models x 1 run
     │                              #   (27 x -c 2 = 54 threads)
     ├── build_indbot_models.py     # builds M28-M45 (independent bottleneck times) from
@@ -89,6 +91,12 @@ models use the equivalent binary form `TIME1 = INC1 + 0`.
     │                              #   random initial values and summarizes the 2.5/50/97.5
     │                              #   percentiles per parameter
     └── plot_six_model_schematics_exNRD.py  # six-panel demographic schematics (top5 + M01)
+└── comparative_genomics/          # orthology inference (OrthoFinder v3.0.1b1, DIAMOND -M msa),
+    │                              #   Yang & Smith (2014) tree-based paralog pruning (MI/RT),
+    │                              #   MCMCTree divergence dating (Poisson+Γ4, main + MI/RT sensitivity)
+    ├── 00_orthology_inference/
+    ├── 01_paralog_pruning_YangSmith2014/
+    └── 02_molecular_dating/
 ```
 
 ## Model definitions (M01-M45)
